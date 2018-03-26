@@ -47,6 +47,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Turning OFF all the LED's
+    cout << endl;
     for(int i = 0; i < 4; i++) {
         removeTrigger(i);
         commands(2, i);
@@ -99,10 +100,5 @@ void commands(int cmd, int led) {
 
 void removeTrigger(int led) {
     // Remove the trigger from the LED
-    std::fstream fs;
-    char name[100];
-    sprintf(name, PATH "%i/trigger", led);
-    fs.open(name, std::fstream::out);
-    fs << "none";
-    fs.close();
+    writeLED("/trigger", "none", led);
 }
