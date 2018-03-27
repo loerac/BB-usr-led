@@ -27,7 +27,7 @@ sub commands {
 		open(DATA, "<" .$PATH . $_[1] . "/trigger");
 		while(<DATA>) { print "$_"; }
 		close(DATA);
-	}
+	} else { print "Invalid command\n"; }
 }
 
 sub removeTrigger {
